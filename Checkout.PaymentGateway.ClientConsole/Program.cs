@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Checkout.PaymentGateway.Client;
-using Checkout.PaymentGetway.Common;
+using Checkout.PaymentGateway.Common;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Checkout.PaymentGateway.ClientConsole

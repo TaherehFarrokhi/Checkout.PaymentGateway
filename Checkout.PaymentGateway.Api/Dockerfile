@@ -7,7 +7,7 @@ FROM microsoft/dotnet:2.2-sdk AS build
 WORKDIR /src
 COPY Checkout.PaymentGateway.Api/Checkout.PaymentGateway.Api.csproj Checkout.PaymentGateway.Api/
 COPY Checkout.PaymentGateway.Services/Checkout.PaymentGateway.Services.csproj Checkout.PaymentGateway.Services/
-COPY Checkout.PaymentGetway.Common/Checkout.PaymentGetway.Common.csproj Checkout.PaymentGetway.Common/
+COPY Checkout.PaymentGateway.Common/Checkout.PaymentGetway.Common.csproj Checkout.PaymentGateway.Common/
 RUN dotnet restore Checkout.PaymentGateway.Api/Checkout.PaymentGateway.Api.csproj
 COPY . .
 WORKDIR /src/Checkout.PaymentGateway.Api

@@ -1,10 +1,10 @@
 ﻿using System;
 
-namespace Checkout.PaymentGetway.Common
+namespace Checkout.PaymentGateway.Common
 {
     public class PaymentRequest
     {
-        public string PaymentRequestId { get; } = Guid.NewGuid().ToString();
+        public string PaymentRequestId { get; } = Guid.NewGuid().ToString("N");
         public string CardNumber { get; set; }
         public DateTime ExpiryDate { get; set; }
         public decimal Amount { get; set; }

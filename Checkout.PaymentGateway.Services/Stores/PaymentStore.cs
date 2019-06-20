@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Checkout.PaymentGetway.Common;
+using Checkout.PaymentGateway.Common;
 using Microsoft.Extensions.Caching.Memory;
 
 namespace Checkout.PaymentGateway.Services.Stores

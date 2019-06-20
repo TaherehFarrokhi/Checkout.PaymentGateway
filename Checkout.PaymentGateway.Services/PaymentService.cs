@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
+using Checkout.PaymentGateway.Common;
 using Checkout.PaymentGateway.Services.BankClientApi;
 using Checkout.PaymentGateway.Services.Responses;
 using Checkout.PaymentGateway.Services.Stores;
 using Checkout.PaymentGateway.Services.Validators;
-using Checkout.PaymentGetway.Common;
 using Microsoft.Extensions.Logging;
 
 namespace Checkout.PaymentGateway.Services

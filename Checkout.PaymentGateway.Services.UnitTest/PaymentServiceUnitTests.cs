@@ -1,9 +1,9 @@
 using System;
 using System.Threading.Tasks;
+using Checkout.PaymentGateway.Common;
 using Checkout.PaymentGateway.Services.BankClientApi;
 using Checkout.PaymentGateway.Services.Stores;
 using Checkout.PaymentGateway.Services.Validators;
-using Checkout.PaymentGetway.Common;
 using FluentValidation.Results;
 using Microsoft.Extensions.Logging;
 using Moq;

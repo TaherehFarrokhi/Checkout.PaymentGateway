@@ -1,5 +1,5 @@
 ﻿using System.Threading.Tasks;
-using Checkout.PaymentGetway.Common;
+using Checkout.PaymentGateway.Common;
 using Refit;
 
 namespace Checkout.PaymentGateway.Client

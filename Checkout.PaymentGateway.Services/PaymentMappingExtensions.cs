@@ -1,5 +1,5 @@
 ﻿using System;
-using Checkout.PaymentGetway.Common;
+using Checkout.PaymentGateway.Common;
 
 namespace Checkout.PaymentGateway.Services
 {

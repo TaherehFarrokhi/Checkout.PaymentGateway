@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Checkout.PaymentGetway.Common
+namespace Checkout.PaymentGateway.Common
 {
     public class Payment
     {

@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
+using Checkout.PaymentGateway.Common;
 using Checkout.PaymentGateway.Services.Responses;
-using Checkout.PaymentGetway.Common;
 
 namespace Checkout.PaymentGateway.Services
 {

@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
+using Checkout.PaymentGateway.Common;
 using Checkout.PaymentGateway.Services;
-using Checkout.PaymentGetway.Common;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Checkout.PaymentGateway.Api.Controllers

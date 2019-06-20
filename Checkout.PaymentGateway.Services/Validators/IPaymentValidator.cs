@@ -1,4 +1,4 @@
-﻿using Checkout.PaymentGetway.Common;
+﻿using Checkout.PaymentGateway.Common;
 using FluentValidation.Results;
 
 namespace Checkout.PaymentGateway.Services.Validators
