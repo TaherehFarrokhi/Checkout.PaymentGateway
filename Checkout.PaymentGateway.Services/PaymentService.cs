@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using Checkout.PaymentGateway.Common;
 using Checkout.PaymentGateway.Services.BankClientApi;
@@ -73,8 +72,17 @@ namespace Checkout.PaymentGateway.Services
 
         public async Task<ClientResponse<Payment>> GetPaymentAsync(string paymentId)
         {
-            var payment = await _paymentStore.GetPaymentAsync(paymentId);
-            return ClientResponse<Payment>.FromPayload(payment);
+            if (paymentId == null) throw new ArgumentNullException(nameof(paymentId));
+            try
+            {
+                var payment = await _paymentStore.GetPaymentAsync(paymentId);
+                return ClientResponse<Payment>.FromPayload(payment);
+            }
+            catch (Exception e)
+            {
+                _logger.LogError($"Error in getting payment with Id:{paymentId}", e);
+                return ClientResponse<Payment>.FromError("Error in getting payment", null);
+            }
         }
 
         private async Task UpdatePaymentAsync(Payment payment)

@@ -130,5 +130,36 @@ namespace Checkout.PaymentGateway.Services.UnitTest
             Assert.True(clientResponse.Success);
             Assert.Null(clientResponse.ErrorMessage);
         }
+
+        [Fact]
+        public async Task GetPaymentAsync_ShouldReturnsPayment_WhenPaymentIsInStore()
+        {
+            // Arrange
+            _paymentStoreMock.Setup(x => x.GetPaymentAsync(It.IsAny<string>())).ReturnsAsync(new Payment());
+
+            // Act
+            var clientResponse = await _subject.GetPaymentAsync("PaymentId");
+
+            //Assert
+            Assert.True(clientResponse.Success);
+            Assert.NotNull(clientResponse.Payload);
+            Assert.Null(clientResponse.ErrorMessage);
+        }
+
+        [Fact]
+        public async Task GetPaymentAsync_ShouldReturnsFailedResponse_WhenPaymentStoreReturnsException()
+        {
+            // Arrange
+            _paymentStoreMock.Setup(x => x.GetPaymentAsync(It.IsAny<string>())).ThrowsAsync(new Exception());
+
+            // Act
+            var clientResponse = await _subject.GetPaymentAsync("PaymentId");
+
+            //Assert
+            Assert.False(clientResponse.Success);
+            Assert.Null(clientResponse.Payload);
+            Assert.Equal("Error in getting payment", clientResponse.ErrorMessage);
+        }
+
     }
 }
