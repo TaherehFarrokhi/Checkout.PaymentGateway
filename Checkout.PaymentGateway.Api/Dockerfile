@@ -1,0 +1,22 @@
+FROM microsoft/dotnet:2.2-aspnetcore-runtime AS base
+WORKDIR /app
+EXPOSE 80
+EXPOSE 443
+
+FROM microsoft/dotnet:2.2-sdk AS build
+WORKDIR /src
+COPY Checkout.PaymentGateway.Api/Checkout.PaymentGateway.Api.csproj Checkout.PaymentGateway.Api/
+COPY Checkout.PaymentGateway.Services/Checkout.PaymentGateway.Services.csproj Checkout.PaymentGateway.Services/
+COPY Checkout.PaymentGetway.Common/Checkout.PaymentGetway.Common.csproj Checkout.PaymentGetway.Common/
+RUN dotnet restore Checkout.PaymentGateway.Api/Checkout.PaymentGateway.Api.csproj
+COPY . .
+WORKDIR /src/Checkout.PaymentGateway.Api
+RUN dotnet build Checkout.PaymentGateway.Api.csproj -c Release -o /app
+
+FROM build AS publish
+RUN dotnet publish Checkout.PaymentGateway.Api.csproj -c Release -o /app
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app .
+ENTRYPOINT ["dotnet", "Checkout.PaymentGateway.Api.dll"]
