@@ -1,4 +1,6 @@
-﻿namespace Checkout.PaymentGateway.Common
+﻿using Newtonsoft.Json;
+
+namespace Checkout.PaymentGateway.Common
 {
     public class PaymentResult
     {
@@ -7,6 +9,7 @@
             PaymentRequestId = paymentRequestId;
         }
 
+        [JsonConstructor]
         public PaymentResult(string paymentRequestId, string paymentReferenceId)
         {
             PaymentRequestId = paymentRequestId;

@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Threading.Tasks;
 using Checkout.PaymentGateway.Common;
 
 namespace Checkout.PaymentGateway.Services.BankClientApi
 {
+    [ExcludeFromCodeCoverage]
     public class MockBankPaymentClient : IBankPaymentClient
     {
         public Task<BankPaymentResult> ProcessPaymentAsync(PaymentRequest paymentRequest)
